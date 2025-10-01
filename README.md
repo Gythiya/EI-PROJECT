@@ -1,133 +1,133 @@
-📚 Virtual Classroom Management Application
 
-Welcome to the Virtual Classroom Management Application, a comprehensive Java-based solution for managing virtual classrooms efficiently. This application provides easy-to-use tools for classroom management, student enrollment, assignment handling, and logging, all designed to improve the user experience for educators and administrators.
+# 📚 Virtual Classroom Management Application
 
-🚀 Key Features
-📌 Classroom Management
+Welcome to the **Virtual Classroom Management Application**, a comprehensive **Java-based solution** for managing virtual classrooms efficiently. This application provides easy-to-use tools for **classroom management, student enrollment, assignment handling, and logging**, all designed to improve the user experience for educators and administrators.
 
-Easily add or remove classrooms of types such as Core, Interdepartment, and Practical.
+---
 
-View all classrooms in a numbered list for easy selection.
+## 🚀 Key Features
 
-Prevents duplicate classroom names.
+### 📌 **Classroom Management**
 
-Can list all available classrooms.
+* Easily add or remove classrooms of types such as **Core, Interdepartment, and Practical**.
+* View all classrooms in a **numbered list** for easy selection.
+* Prevents duplicate classroom names.
+* Can list all available classrooms.
 
-👩‍🎓 Student Management
+### 👩‍🎓 **Student Management**
 
-Enroll students into classrooms.
+* Enroll students into classrooms.
+* Prevents duplicate student enrollment.
+* List all students present in a classroom.
 
-Prevents duplicate student enrollment.
+### 📝 **Assignment Management**
 
-List all students present in a classroom.
+* Schedule new assignments for classrooms.
+* Remove assignments when no longer needed.
+* Submit assignments through a **number-based system** (avoids spelling/typing errors).
+* Prevents duplicate assignment scheduling and ensures only valid submissions.
 
-📝 Assignment Management
+### 🎛️ **User Experience Enhancements**
 
-Schedule new assignments for classrooms.
+* User-friendly **numbered selection system** prevents errors and avoids typing mismatches.
+* Validation checks for invalid or empty inputs for smoother operation.
+* Clear console messages for better interaction.
+* **Action logging** for transparency.
 
-Remove assignments when no longer needed.
+---
 
-Submit assignments through a number-based system (avoids spelling/typing errors).
+## 🛠️ Technologies & Design
 
-Prevents duplicate assignment scheduling and ensures only valid submissions.
+* **Programming Language**: Java
 
-🎛️ User Experience Enhancements
+### **Design Patterns Used**
 
-User-friendly numbered selection system prevents errors and avoids typing mismatches.
+* **Singleton** – Ensures a single instance of `VirtualClassroomManager` handles all classrooms and students.
+* **Factory** – Simplifies creation of different classroom types (**Core, Interdepartment, Practical**).
+* **Observer** – Monitors assignment submissions and updates logs accordingly.
 
-Validation checks for invalid or empty inputs for smoother operation.
+### **Utilities**
 
-Clear console messages for better interaction.
+* **Custom Logger** – Tracks actions like classroom creation, student enrollment, and assignment submissions.
 
-Action logging for transparency.
+### **Version Control**
 
-🛠️ Technologies & Design
+* **Git**
 
-Programming Language: Java
+---
 
-Design Patterns Used
+## 📋 Prerequisites
 
-Singleton – Ensures a single instance of VirtualClassroomManager handles all classrooms and students.
+Make sure you have the following installed:
 
-Factory – Simplifies creation of different classroom types (Core, Interdepartment, Practical).
+* **Java Development Kit (JDK)**
+* **Git**
 
-Observer – Monitors assignment submissions and updates logs accordingly.
+---
 
-Utilities
+## 🚀 Installation
 
-Custom Logger – Tracks actions like classroom creation, student enrollment, and assignment submissions.
+### **Clone the Repository**
 
-Version Control
-
-Git
-
-📋 Prerequisites
-
-Ensure you have the following installed:
-
-Java Development Kit (JDK)
-
-Git
-
-🚀 Installation
-Clone the Repository
+```bash
 git clone https://github.com/Gythiya/EI-PROJECT.git
 cd EI-PROJECT
+```
 
-Compile the Java Files
+### **Compile the Java Files**
+
+```bash
 javac -d bin src/exercise2/*.java
+```
 
-Run the Application
+### **Run the Application**
+
+```bash
 java -cp bin exercise2.Main
+```
 
-📚 Usage Instructions
+---
+
+## 📚 Usage Instructions
 
 Once the application is running, follow the console prompts:
 
-Add Classroom: Choose type and input name.
+* **Add Classroom** → Choose type and input name.
+* **Remove Classroom** → Select type and choose classroom by number.
+* **Add Student** → Input student ID and select classroom by number.
+* **Schedule Assignment** → Input title and assign to classroom.
+* **Remove Assignment** → Select classroom and assignment by number.
+* **Submit Assignment** → Select student, classroom, and assignment by number.
+* **List Students in Classroom** → Displays all students numerically.
+* **List Classrooms by Type** → Displays classrooms with numbers.
+* **Exit Application** → Terminates the program.
 
-Remove Classroom: Select type and choose classroom by number.
+---
 
-Add Student: Input student ID and select classroom by number.
+## 📜 Code Structure
 
-Schedule Assignment: Input title and assign to classroom.
+* **Main.java** – Handles user input, menu, and workflows.
+* **VirtualClassroomManager.java** – Central management of classrooms and students.
+* **Classroom.java** – Represents classroom entities and assignment management.
+* **Student.java** – Represents student information and assignment submissions.
+* **Assignment.java** – Represents individual assignments.
+* **LoggerManager.java** – Handles custom logging.
+* **ClassroomFactory.java** – Creates classroom instances (**Core, Interdepartment, Practical**).
 
-Remove Assignment: Select classroom and assignment by number.
+---
 
-Submit Assignment: Select student, classroom, and assignment by number.
+## 🤝 Contributing
 
-List Students in Classroom: Displays all students numerically.
+Contributions are welcome! 🎉
+Please **fork the repository** and submit a **pull request** with details of your changes.
 
-List Classrooms by Type: Displays classrooms with numbers.
+---
 
-Exit Application: Terminates the program.
+## 📧 Contact
 
-📜 Code Structure
+**👩‍💻 Author**: Gythiya Sree V S V
 
-Main.java – Handles user input, menu, and all workflows.
-
-VirtualClassroomManager.java – Central management of classrooms and students.
-
-Classroom.java – Represents classroom entities and assignment management.
-
-Student.java – Represents student information and assignment submissions.
-
-Assignment.java – Represents individual assignments.
-
-LoggerManager.java – Handles custom logging.
-
-ClassroomFactory.java – Creates classroom instances (Core, Interdepartment, Practical).
-
-🤝 Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with details of your changes.
+* **Email**: [gythiya24@gmail.com](mailto:gythiya24@gmail.com)
+* **GitHub**: [Gythiya](https://github.com/Gythiya)
 
 
-
-📧 Contact
-
-Gythiya Sree V S V
-
-Email: gythiya24@gmail.com
-
-GitHub: Gythiya
