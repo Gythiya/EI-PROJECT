@@ -1,5 +1,5 @@
 
-# 📚 Virtual Classroom Management Application
+# 🎓 Virtual Classroom Management Application
 
 Welcome to the **Virtual Classroom Management Application**, a comprehensive **Java-based solution** for managing virtual classrooms efficiently. This application provides easy-to-use tools for **classroom management, student enrollment, assignment handling, and logging**, all designed to improve the user experience for educators and administrators.
 
