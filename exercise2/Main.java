@@ -61,19 +61,27 @@ public class Main {
         if(cls.isEmpty()) { System.out.println("No classrooms available!"); return null; }
 
         System.out.println("Available Classrooms:");
-        cls.forEach(c -> System.out.println("- " + c.getName()));
+        for (int i = 0; i < cls.size(); i++) {
+            System.out.println((i + 1) + ". " + cls.get(i).getName());
+        }
 
-        System.out.print("Enter Classroom Name: ");
-        String name = sc.nextLine().trim();
-        if(name.isEmpty()) { System.out.println("Classroom name cannot be empty!"); return null; }
+        System.out.print("Enter your choice (1-" + cls.size() + "): ");
+        int choice;
+        try {
+            choice = Integer.parseInt(sc.nextLine().trim());
+            if(choice < 1 || choice > cls.size()) {
+                System.out.println("Invalid choice!");
+                return null;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input! Please enter a number.");
+            return null;
+        }
 
-        Classroom c = manager.getClassroom(type, name);
-        if(c == null) { System.out.println("Classroom not found!"); }
-        return c;
+        return cls.get(choice - 1);
     }
 
-    // --- Classroom  Features---
-
+    // --- Classroom Features ---
     private static void addClassroomFlow() {
         String type = chooseCourseType();
         System.out.print("Enter Classroom Name: ");
@@ -91,8 +99,7 @@ public class Main {
         System.out.println("Classroom '" + c.getName() + "' removed from " + type);
     }
 
-   // --- Student & Assignment Features ---  
-
+    // --- Student & Assignment Features ---  
     private static void addStudentFlow() {
         System.out.print("Enter Student ID: ");
         String studentId = sc.nextLine().trim();
@@ -105,8 +112,6 @@ public class Main {
         manager.addStudent(studentId, type, c.getName());
         System.out.println("Student '" + studentId + "' enrolled in " + c.getName());
     }
-
-    
 
     private static void scheduleAssignmentFlow() {
         String type = chooseCourseType();
@@ -133,24 +138,32 @@ public class Main {
         Classroom c = selectClassroom(type);
         if(c == null) return;
 
-        if(c.getAssignments().isEmpty()) {
+        List<Assignment> assignments = c.getAssignments();
+        if(assignments.isEmpty()) {
             System.out.println("No assignments to remove in " + c.getName());
             return;
         }
 
         System.out.println("Available Assignments:");
-        c.getAssignments().forEach(a -> System.out.println("- " + a.getTitle()));
-
-        System.out.print("Enter Assignment Title to remove: ");
-        String title = sc.nextLine().trim();
-        if(title.isEmpty()) { System.out.println("Title cannot be empty!"); return; }
-
-        boolean removed = c.getAssignments().removeIf(a -> a.getTitle().equalsIgnoreCase(title));
-        if(removed) {
-            System.out.println("Assignment '" + title + "' removed from " + c.getName());
-        } else {
-            System.out.println("Assignment not found!");
+        for (int i = 0; i < assignments.size(); i++) {
+            System.out.println((i + 1) + ". " + assignments.get(i).getTitle());
         }
+
+        System.out.print("Enter your choice (1-" + assignments.size() + "): ");
+        int choice;
+        try {
+            choice = Integer.parseInt(sc.nextLine().trim());
+            if(choice < 1 || choice > assignments.size()) {
+                System.out.println("Invalid choice!");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input! Please enter a number.");
+            return;
+        }
+
+        Assignment removed = assignments.remove(choice - 1);
+        System.out.println("Assignment '" + removed.getTitle() + "' removed from " + c.getName());
     }
 
     private static void submitAssignmentFlow() {
@@ -163,41 +176,48 @@ public class Main {
         Classroom c = selectClassroom(type);
         if(c == null) return;
 
-        if(c.getAssignments().isEmpty()) {
+        List<Assignment> assignments = c.getAssignments();
+        if(assignments.isEmpty()) {
             System.out.println("No assignments scheduled in " + c.getName());
             return;
         }
 
         System.out.println("Available Assignments:");
-        c.getAssignments().forEach(a -> System.out.println("- " + a.getTitle()));
+        for (int i = 0; i < assignments.size(); i++) {
+            System.out.println((i + 1) + ". " + assignments.get(i).getTitle());
+        }
 
-        System.out.print("Enter Assignment Title: ");
-        String title = sc.nextLine().trim();
-        if(title.isEmpty()) { System.out.println("Title cannot be empty!"); return; }
-
-        boolean exists = c.getAssignments().stream()
-                          .anyMatch(a -> a.getTitle().equalsIgnoreCase(title));
-        if(!exists) {
-            System.out.println("Assignment does not exist! Submission canceled.");
+        System.out.print("Enter your choice (1-" + assignments.size() + "): ");
+        int choice;
+        try {
+            choice = Integer.parseInt(sc.nextLine().trim());
+            if(choice < 1 || choice > assignments.size()) {
+                System.out.println("Invalid choice!");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input! Please enter a number.");
             return;
         }
 
-        s.submitAssignment(c.getName(), title);
-        System.out.println("Assignment '" + title + "' submitted by " + studentId);
+        Assignment selected = assignments.get(choice - 1);
+        s.submitAssignment(c.getName(), selected.getTitle());
+        System.out.println("Assignment '" + selected.getTitle() + "' submitted by " + studentId);
     }
-
-
 
     private static void listStudentsFlow() {
         String type = chooseCourseType();
         Classroom c = selectClassroom(type);
         if(c == null) return;
 
-        if(c.getStudents().isEmpty()) {
+        List<Student> students = c.getStudents();
+        if(students.isEmpty()) {
             System.out.println("No students in " + c.getName());
         } else {
             System.out.println("Students in " + c.getName() + ":");
-            c.getStudents().forEach(s -> System.out.println("- " + s.getId()));
+            for (int i = 0; i < students.size(); i++) {
+                System.out.println((i + 1) + ". " + students.get(i).getId());
+            }
         }
     }
 
@@ -209,6 +229,8 @@ public class Main {
             return;
         }
         System.out.println("Classrooms of type " + type + ":");
-        cls.forEach(c -> System.out.println("- " + c.getName()));
+        for (int i = 0; i < cls.size(); i++) {
+            System.out.println((i + 1) + ". " + cls.get(i).getName());
+        }
     }
 }
