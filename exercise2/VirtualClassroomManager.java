@@ -42,8 +42,8 @@ public class VirtualClassroomManager {
     public Student getStudent(String id) { 
         return students.get(id); 
     }
-    
-    // Remove a classroom by type and name
+
+    // Remove a classroom 
    public void removeClassroom(String type, String name) {
     List<Classroom> cls = classroomsByType.get(type);
     if(cls == null || cls.isEmpty()) {

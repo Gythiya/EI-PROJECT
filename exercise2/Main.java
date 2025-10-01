@@ -40,7 +40,7 @@ public class Main {
             case "9" -> { return; }
             default -> System.out.println("Invalid choice. Enter 1-9.");
         }
-        start(); // Recursive call for menu
+        start(); 
     }
 
     private static String chooseCourseType() {
@@ -72,7 +72,7 @@ public class Main {
         return c;
     }
 
-    // --- Classroom Flows ---
+    // --- Classroom  Features---
 
     private static void addClassroomFlow() {
         String type = chooseCourseType();
@@ -91,7 +91,7 @@ public class Main {
         System.out.println("Classroom '" + c.getName() + "' removed from " + type);
     }
 
-    // --- Student Flows ---
+   // --- Student & Assignment Features ---  
 
     private static void addStudentFlow() {
         System.out.print("Enter Student ID: ");
@@ -106,7 +106,7 @@ public class Main {
         System.out.println("Student '" + studentId + "' enrolled in " + c.getName());
     }
 
-    // --- Assignment Flows ---
+    
 
     private static void scheduleAssignmentFlow() {
         String type = chooseCourseType();
@@ -186,7 +186,7 @@ public class Main {
         System.out.println("Assignment '" + title + "' submitted by " + studentId);
     }
 
-    // --- Listing Flows ---
+
 
     private static void listStudentsFlow() {
         String type = chooseCourseType();
