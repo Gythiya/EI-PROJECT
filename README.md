@@ -307,6 +307,9 @@ Used to select **different payment methods** (Credit Card or UPI) for a shopping
 * **Language:** Java
 * **Version Control:** Git
 
+## 📜 License
+
+This project is licensed under the MIT License. For more details, see the LICENSE file. 
 
 ## 📧 Contact
 
